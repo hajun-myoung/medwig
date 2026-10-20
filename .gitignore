@@ -218,3 +218,34 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+## Additional ignores
+# eml files are included on ignore list
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.DS_Store
+
+# Actual user emails
+data/
+*.eml
+*.mbox
+*.zip
+
+# Google credentials
+credentials.json
+token.json
+*.token.json
+
+# Local migration state
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+
+# Local settings
+.env
