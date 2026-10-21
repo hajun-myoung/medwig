@@ -1,7 +1,6 @@
 import base64
 from pathlib import Path
 
-
 VALID_MAILBOXES = {"INBOX", "SENT"}
 
 
