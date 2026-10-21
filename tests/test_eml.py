@@ -10,7 +10,7 @@ def test_parse_eml_with_attachment(tmp_path):
     message["From"] = "sender@example.com"
     message["To"] = "receiver@example.com"
     message["Subject"] = "한글 메일 제목 테스트"
-    message["Date"] = "Mon, 19 Oct 2026 12:20:00 +0900"
+    message["Date"] = "Mon, 19 Oct 2026 12:30:00 +0900"
 
     # TODO: 여기는 나중에 Lorem 장문도 넣어서 테스트 요망
     message.set_content("Testing Contents\n테스트 메일 본문")
@@ -31,9 +31,9 @@ def test_parse_eml_with_attachment(tmp_path):
     assert metadata.subject == "한글 메일 제목 테스트"
     assert metadata.sender == "sender@example.com"
     assert metadata.recipients == "receiver@example.com"
-    assert metadata.attachments == "lorem.txt"
+    assert metadata.attachments == ("lorem.txt",)
 
-    assert metadata.date == datetime(2026, 10, 19, 12, 20, tzinfo=UTC).astimezone(
+    assert metadata.date == datetime(2026, 10, 19, 12, 30, tzinfo=UTC).astimezone(
         UTC
     ).replace(hour=3, minute=30)
 
