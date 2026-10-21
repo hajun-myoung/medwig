@@ -10,7 +10,7 @@ from mail_migrator.auth import (
     get_gmail_service,
 )
 from mail_migrator.eml import parse_eml
-from mail_migrator.gamil import insert_eml
+from mail_migrator.gmail import insert_eml
 
 
 def main():
