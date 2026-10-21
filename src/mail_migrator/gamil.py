@@ -21,7 +21,7 @@ def insert_eml(service, account: str, path: Path, mailbox: str) -> str:
     response = (
         service.users()
         .messages()
-        .insert(userId=account, body=body, internalDataSource="dateHeader")
+        .insert(userId=account, body=body, internalDateSource="dateHeader")
     ).execute()
 
     return response["id"]

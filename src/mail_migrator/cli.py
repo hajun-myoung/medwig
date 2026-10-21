@@ -58,7 +58,7 @@ def main():
     db = sqlite3.connect("migration.sqlite3")
 
     db.execute("""
-        CREATE TABLE IF NOT EXIST uploads (
+        CREATE TABLE IF NOT EXISTS uploads (
             account TEXT NOT NULL,
             mailbox TEXT NOT NULL,
             digest TEXT NOT NULL,
@@ -113,13 +113,13 @@ def main():
             failed += 1
             print(f"[FAIL] {file.name}: {error}")
 
-        db.close()
+    db.close()
 
-        print(
-            json.dumps(
-                {"uploaded": uploaded, "skipped": skipped, "failed": failed}, indent=2
-            )
+    print(
+        json.dumps(
+            {"uploaded": uploaded, "skipped": skipped, "failed": failed}, indent=2
         )
+    )
 
 
 if __name__ == "__main__":
