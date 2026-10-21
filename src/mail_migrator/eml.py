@@ -32,7 +32,6 @@ def parse_eml(path: Path) -> EmlMetadata:
             date = parsedate_to_datetime(str(date_header))
         except (TypeError, ValueError, IndexError):
             print("Error Captured on parsedate_to_datetime")
-            pass
 
     attachments = []
 
