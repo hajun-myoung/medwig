@@ -1,9 +1,10 @@
 from dataclasses import dataclass
-from pathlib import Path
 from datetime import datetime
 from email import policy
 from email.parser import BytesParser
 from email.utils import parsedate_to_datetime
+from pathlib import Path
+
 
 @dataclass(frozen=True)
 class EmlMetadata:
@@ -15,12 +16,11 @@ class EmlMetadata:
     attachments: tuple[str, ...]
     size_bytes: int
 
+
 def parse_eml(path: Path) -> EmlMetadata:
     raw = path.read_bytes()
 
-    message = BytesParser(
-        policy=policy.default
-    ).parsebytes(raw)
+    message = BytesParser(policy=policy.default).parsebytes(raw)
 
     # 일단 파싱은 된듯
 
@@ -49,8 +49,9 @@ def parse_eml(path: Path) -> EmlMetadata:
         recipients=str(message.get("To", "Unknown recipients")),
         date=date,
         attachments=tuple(attachments),
-        size_bytes=len(raw)
+        size_bytes=len(raw),
     )
+
 
 def read_raw_eml(path: Path) -> bytes:
     return path.read_bytes()
