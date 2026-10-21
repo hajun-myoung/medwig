@@ -2,7 +2,7 @@ import base64
 
 import pytest
 
-from mail_migrator.gamil import build_message
+from mail_migrator.gmail import build_message
 
 
 def test_build_inbox_message():
